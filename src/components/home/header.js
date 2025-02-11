@@ -9,6 +9,7 @@ import {
   UserButton,
   useUser,
 } from "@clerk/nextjs";
+import Link from "next/link";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,10 +27,10 @@ const Header = () => {
         <nav className="z-50 shadow-sm">
           <div className="container mx-auto px-6">
             <div className="flex items-center justify-between h-16">
-              <div className="flex items-center space-x-2">
+              <Link href={"/"} className="flex items-center space-x-2">
                 <QrCode className="w-8 h-8 text-blue-600" />
                 <span className="text-xl font-bold text-gray-800">QRPlate</span>
-              </div>
+              </Link>
 
               {/* Desktop Menu */}
               <div className="hidden md:flex items-center space-x-8">
@@ -43,14 +44,9 @@ const Header = () => {
                   Pricing
                 </a>
 
-                <SignedOut>
-                  <div className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                    <SignInButton />
-                  </div>
-                </SignedOut>
-                <SignedIn>
-                  <UserButton />
-                </SignedIn>
+                <div className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                  <Link href="/auth">Login</Link>
+                </div>
               </div>
 
               {/* Mobile Menu Button */}
