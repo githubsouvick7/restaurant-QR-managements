@@ -1,21 +1,11 @@
 "use client";
-import { Menu, QrCode, X } from "lucide-react";
-import React, { useState } from "react";
 import { cn } from "@/lib/utils";
-import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-  useUser,
-} from "@clerk/nextjs";
+import { Menu, QrCode, X } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isLoaded, isSignedIn, user } = useUser();
-
-  console.log(isSignedIn, user);
 
   return (
     <div className="relative">
